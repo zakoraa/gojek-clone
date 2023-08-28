@@ -22,8 +22,8 @@ class GridViewWidget extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 5,
+          mainAxisSpacing: 1,
+          crossAxisSpacing: 1,
         ),
         itemCount: gridMap.length,
         itemBuilder: (context, index) => Column(

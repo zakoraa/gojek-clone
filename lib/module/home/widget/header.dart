@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -11,6 +12,7 @@ class Header extends StatelessWidget {
       "Eksplor": Icons.rocket
     };
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 15),
       padding: const EdgeInsets.only(left: 15),
       height: 90,
       width: MediaQuery.of(context).size.width,
@@ -43,13 +45,15 @@ class Header extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text(
+                  const AutoSizeText(
                     "Klik & cek riwayat",
+                    maxLines: 1,
+                    minFontSize: 8,
+                    maxFontSize: 10,
                     style: TextStyle(
-                      color: Color(0xFF00880F),
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        color: Color(0xFF00880F),
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold),
                   )
                 ],
               ),
@@ -68,8 +72,8 @@ class Header extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              height: 20,
-                              width: 20,
+                              height: MediaQuery.of(context).size.width * 0.05,
+                              width: MediaQuery.of(context).size.width * 0.05,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 color: Colors.white,
@@ -77,7 +81,8 @@ class Header extends StatelessWidget {
                               child: Center(
                                 child: Icon(
                                   action.values.elementAt(index),
-                                  size: 18,
+                                  size:
+                                      MediaQuery.of(context).size.width * 0.045,
                                   color: const Color(0xFF0281A0),
                                 ),
                               ),
@@ -87,10 +92,9 @@ class Header extends StatelessWidget {
                             ),
                             Text(
                               action.keys.elementAt(index),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.04,
+                                fontSize: 13,
                                 fontWeight: FontWeight.bold,
                               ),
                             )
