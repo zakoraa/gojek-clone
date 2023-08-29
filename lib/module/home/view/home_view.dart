@@ -5,6 +5,7 @@ import 'package:gojek/module/home/widget/gopay_later.dart';
 import 'package:gojek/module/home/widget/grid_view_widget.dart';
 import 'package:gojek/module/home/widget/header.dart';
 import 'package:gojek/module/home/widget/recommendation_place.dart';
+import 'package:gojek/shared/widgets/bottom_navbar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -48,18 +49,27 @@ class HomeView extends StatelessWidget {
                   height: 20.0,
                 ),
                 const GopayLater(),
-               Column(
-                children: List.generate(eventContent.length, (index) =>   Event(
-                    image: eventContent.keys.elementAt(index),
-                    title: eventContent.values.elementAt(index)[0],
-                    description: eventContent.values.elementAt(index)[1])),
-               )
+                Column(
+                  children: List.generate(
+                      eventContent.length,
+                      (index) => Event(
+                          image: eventContent.keys.elementAt(index),
+                          title: eventContent.values.elementAt(index)[0],
+                          description:
+                              eventContent.values.elementAt(index)[1])),
+                ),
+                const SizedBox(
+                height: 80.0,
+                ),
               ],
             ),
           ),
           const AppBarCustom(),
+          const ButtomNavbar()
         ],
       ),
     ));
   }
 }
+
+// Belajar bloc dulu bang

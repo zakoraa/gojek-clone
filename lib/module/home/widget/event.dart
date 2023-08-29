@@ -17,14 +17,14 @@ class Event extends StatelessWidget {
       height: 270,
       width: MediaQuery.of(context).size.width * 0.9,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5), // Warna bayangan
-            spreadRadius: 1, // Jarak penyebaran bayangan
-            blurRadius: 10, // Radius blur bayangan
-            offset: const Offset(0, 3), // Offset bayangan (x, y)
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 5,
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -33,7 +33,7 @@ class Event extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                topLeft: Radius.circular(10), topRight: Radius.circular(10)),
             child: Image.asset(
               image!,
               height: 180,

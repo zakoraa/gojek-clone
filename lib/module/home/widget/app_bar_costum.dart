@@ -12,7 +12,7 @@ class AppBarCustom extends StatelessWidget {
         left: 0,
         child: Container(
           color: const Color(0xFF00880F),
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: 125,
           width: MediaQuery.of(context).size.width,
           child: Padding(
             padding: const EdgeInsets.only(top: 30, left: 10, right: 10),

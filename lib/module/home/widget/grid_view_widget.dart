@@ -16,7 +16,7 @@ class GridViewWidget extends StatelessWidget {
       "Lainnya": ["assets/gridHeader/lainnya.png", const Color(0xFFEDEDED)],
     };
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: 250,
       width: MediaQuery.of(context).size.width,
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
