@@ -5,7 +5,6 @@ import 'package:gojek/module/home/widget/gopay_later.dart';
 import 'package:gojek/module/home/widget/grid_view_widget.dart';
 import 'package:gojek/module/home/widget/header.dart';
 import 'package:gojek/module/home/widget/recommendation_place.dart';
-import 'package:gojek/shared/widgets/bottom_navbar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -36,13 +35,13 @@ class HomeView extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                ),
                 const SizedBox(
-                  height: 20.0,
+                  height: 140.0,
                 ),
                 const Header(),
+                const SizedBox(
+                height: 25.0,
+                ),
                 const GridViewWidget(),
                 const RecommendationPlace(),
                 const SizedBox(
@@ -59,13 +58,13 @@ class HomeView extends StatelessWidget {
                               eventContent.values.elementAt(index)[1])),
                 ),
                 const SizedBox(
-                height: 80.0,
+                  height: 80.0,
                 ),
               ],
             ),
           ),
           const AppBarCustom(),
-          const ButtomNavbar()
+
         ],
       ),
     ));

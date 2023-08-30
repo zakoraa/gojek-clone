@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:gojek/module/search/view/search_view.dart';
 
 class AppBarCustom extends StatelessWidget {
   const AppBarCustom({super.key});
@@ -26,7 +27,11 @@ class AppBarCustom extends StatelessWidget {
                   child: InkWell(
                       borderRadius: BorderRadius.circular(25),
                       onTap: () {
-                        print("hallo");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SearchView(),
+                            ));
                       },
                       splashColor: Colors.transparent,
                       child: SizedBox(
