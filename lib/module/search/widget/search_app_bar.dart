@@ -42,7 +42,7 @@ class SearchAppBar extends StatelessWidget {
                 horizontal: 5.0,
               ),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 243, 243, 243),
+                color: CustomColor.lightGrey,
                 borderRadius: const BorderRadius.all(
                   Radius.circular(20.0),
                 ),

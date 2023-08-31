@@ -36,7 +36,7 @@ class SearchCategory extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                 crossAxisSpacing: 15,
-                mainAxisExtent: MediaQuery.of(context).size.width * 0.4,
+                mainAxisExtent: MediaQuery.of(context).size.width * 0.45,
                 maxCrossAxisExtent: 60),
             itemCount: categories.length,
             itemBuilder: (context, index) => Container(
