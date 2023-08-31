@@ -21,8 +21,8 @@ class BottomNavbar extends StatelessWidget {
               left: 0,
               child: Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                height: 80,
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                height: 70,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -62,10 +62,10 @@ class BottomNavbar extends StatelessWidget {
                                     ),
                                     AutoSizeText(
                                       bottomNavbar.keys.elementAt(index),
-                                      minFontSize: 10,
+                                      minFontSize: 8,
                                       maxLines: 1,
                                       style: TextStyle(
-                                          fontSize: 14,
+                                          fontSize: 10,
                                           color: state ==
                                                   BottomNavBarTab.values[index]
                                               ? const Color(0xFF00AA12)
