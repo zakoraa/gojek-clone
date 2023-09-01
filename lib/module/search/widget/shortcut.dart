@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:gojek/shared/theme/color.dart';
 
 class ShortCut extends StatelessWidget {
   const ShortCut({super.key});
@@ -64,7 +65,7 @@ class ShortCut extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
+                      color: CustomColor.boxShadow,
                       blurRadius: 5,
                     ),
                   ],

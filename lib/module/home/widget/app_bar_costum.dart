@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gojek/module/search/view/search_view.dart';
+import 'package:gojek/shared/theme/color.dart';
 
 class AppBarCustom extends StatelessWidget {
   const AppBarCustom({super.key});
@@ -12,7 +13,7 @@ class AppBarCustom extends StatelessWidget {
         top: 0,
         left: 0,
         child: Container(
-          color: const Color(0xFF00880F),
+          color: CustomColor.darkGreen,
           height: 125,
           width: MediaQuery.of(context).size.width,
           child: Padding(
@@ -75,7 +76,7 @@ class AppBarCustom extends StatelessWidget {
                     child: Icon(
                       Icons.person,
                       size: 35,
-                      color: Color(0xFF00AA12),
+                      color: CustomColor.green,
                     ),
                   ),
                 )
