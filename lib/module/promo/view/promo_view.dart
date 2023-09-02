@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gojek/module/promo/list/interesting_promo_list.dart';
 import 'package:gojek/module/promo/widget/app_bar.dart';
+import 'package:gojek/module/promo/widget/carousel_slider.dart';
 import 'package:gojek/module/promo/widget/code.dart';
 import 'package:gojek/shared/widgets/gopay_later.dart';
 import 'package:gojek/shared/widgets/product_promo.dart';
@@ -35,6 +36,10 @@ class PromoView extends StatelessWidget {
                     height: 20.0,
                   ),
                   const InterestingPromotion(),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  const CarouselSliderPromo(),
                   const SizedBox(
                     height: 20.0,
                   ),
