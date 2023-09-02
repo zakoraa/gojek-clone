@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gojek/module/home/widget/app_bar_costum.dart';
 import 'package:gojek/module/home/widget/event.dart';
-import 'package:gojek/module/home/widget/gopay_later.dart';
+import 'package:gojek/shared/widgets/gopay_later.dart';
 import 'package:gojek/module/home/widget/grid_view_widget.dart';
 import 'package:gojek/module/home/widget/header.dart';
 import 'package:gojek/module/home/widget/recommendation_place.dart';
@@ -40,14 +40,18 @@ class HomeView extends StatelessWidget {
                 ),
                 const Header(),
                 const SizedBox(
-                height: 25.0,
+                  height: 25.0,
                 ),
                 const GridViewWidget(),
                 const RecommendationPlace(),
                 const SizedBox(
                   height: 20.0,
                 ),
-                const GopayLater(),
+                const GopayLater(
+                  title: "Lebih Ringan tiap Senin 🤩",
+                  description:
+                      "Karena ada traktiran cicilan 3 bulan 0% Gopay Later di Tokopedia + BEBAS ongkir dengan min. belanja 100RB.",
+                ),
                 Column(
                   children: List.generate(
                       eventContent.length,
@@ -64,7 +68,6 @@ class HomeView extends StatelessWidget {
             ),
           ),
           const AppBarCustom(),
-
         ],
       ),
     ));

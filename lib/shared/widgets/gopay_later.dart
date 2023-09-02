@@ -2,7 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class GopayLater extends StatelessWidget {
-  const GopayLater({super.key});
+  const GopayLater({super.key, required this.title, required this.description});
+
+  final String title, description;
 
   @override
   Widget build(BuildContext context) {
@@ -25,27 +27,27 @@ class GopayLater extends StatelessWidget {
           const SizedBox(
             height: 5.0,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: AutoSizeText(
-              "Lebih Ringan tiap Senin 🤩",
+              title,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               minFontSize: 12,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: AutoSizeText(
-              "Karena ada traktiran cicilan 3 bulan 0% Gopay Later di Tokopedia + BEBAS ongkir dengan min. belanja 100RB.",
+              description,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               minFontSize: 10,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
               ),
             ),

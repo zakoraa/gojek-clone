@@ -36,7 +36,7 @@ class PromoCode extends StatelessWidget {
               width: 10.0,
             ),
             const AutoSizeText(
-              "Masukan kode Promo",
+              "Masukkan kode Promo",
               maxLines: 1,
               minFontSize: 10,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
