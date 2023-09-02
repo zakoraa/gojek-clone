@@ -1,17 +1,23 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gojek/module/promo/list/interesting_promo_list.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gojek/shared/blocs/randomListCubit/random_list_cubit.dart';
 import 'package:gojek/shared/theme/color.dart';
 
 class ProductPromo extends StatelessWidget {
   const ProductPromo(
-      {super.key, required this.title, required this.description});
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.productsPromotions});
 
   final String title, description;
+  final List<Map<String, dynamic>> productsPromotions;
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> productPromotions = List.from(products);
+    RandomListCubit randomListCubit = BlocProvider.of<RandomListCubit>(context);
+    randomListCubit.randomList(productsPromotions);
     return SizedBox(
       height: 350,
       width: MediaQuery.of(context).size.width,
@@ -46,9 +52,9 @@ class ProductPromo extends StatelessWidget {
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: productPromotions.length,
+              itemCount: productsPromotions.length,
               itemBuilder: (context, index) => Container(
-                margin: index == productPromotions.length - 1
+                margin: index == productsPromotions.length - 1
                     ? const EdgeInsets.only(right: 15, left: 15, bottom: 10)
                     : const EdgeInsets.only(left: 15, bottom: 10),
                 height: 250,
@@ -71,7 +77,7 @@ class ProductPromo extends StatelessWidget {
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.asset(
-                            productPromotions[index]["image"],
+                            productsPromotions[index]["image"],
                             fit: BoxFit.cover,
                           )),
                     ),
@@ -85,14 +91,14 @@ class ProductPromo extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "${productPromotions[index]["distance"]} km",
+                            "${productsPromotions[index]["distance"]} km",
                             style: const TextStyle(fontSize: 12),
                           ),
                           const SizedBox(
                             height: 10.0,
                           ),
                           AutoSizeText(
-                            productPromotions[index]["productName"],
+                            productsPromotions[index]["productName"],
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -112,7 +118,7 @@ class ProductPromo extends StatelessWidget {
                                 width: 5.0,
                               ),
                               AutoSizeText(
-                                "${productPromotions[index]["rating"]}",
+                                "${productsPromotions[index]["rating"]}",
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(fontSize: 12),
