@@ -12,19 +12,19 @@ class PromoAppBar extends StatelessWidget {
       left: 0,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: 120,
+        height: 100,
         color: Colors.white,
         child: Stack(
           children: [
             const Positioned(
               left: 15,
-              bottom: 20,
+              bottom: 15,
               child: AutoSizeText(
                 "Promo",
                 maxLines: 1,
-                minFontSize: 20,
+                minFontSize: 18,
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
               ),
