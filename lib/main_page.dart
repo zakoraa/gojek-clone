@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gojek/module/home/view/home_view.dart';
+import 'package:gojek/module/order/view/order_view.dart';
 import 'package:gojek/module/promo/view/promo_view.dart';
 import 'package:gojek/shared/blocs/buildPageCubit/build_page_cubit.dart';
 import 'package:gojek/shared/widgets/bottom_navbar.dart';
@@ -30,7 +31,7 @@ Widget buildPage(BottomNavBarTab page, BuildContext context) {
     case BottomNavBarTab.promo:
       return const PromoView();
     case BottomNavBarTab.pesanan:
-      return const ComingSoon();
+      return const OrderView();
     case BottomNavBarTab.chat:
       return const ComingSoon();
     default:
