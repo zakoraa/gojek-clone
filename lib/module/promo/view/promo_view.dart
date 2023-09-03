@@ -25,7 +25,7 @@ class PromoView extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 150.0,
+                    height: 130.0,
                   ),
                   const PromoHeader(),
                   const SizedBox(
