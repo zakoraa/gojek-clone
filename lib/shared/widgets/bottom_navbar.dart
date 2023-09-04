@@ -15,69 +15,66 @@ class BottomNavbar extends StatelessWidget {
       "Chat": Icons.chat
     };
 
-    return BlocBuilder<BuildPageCubit, BottomNavBarTab>(
-        builder: (context, state) => Positioned(
-              bottom: 0,
-              left: 0,
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                height: 70,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 10,
-                      blurRadius: 10,
-                      offset: const Offset(0, 5),
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(
-                        bottomNavbar.length,
-                        (index) => GestureDetector(
-                              onTap: () => context
-                                  .read<BuildPageCubit>()
-                                  .selectedPage(BottomNavBarTab.values[index]),
-                              child: SizedBox(
-                                child: Column(
-                                  children: [
-                                    Icon(
-                                      bottomNavbar.values.elementAt(index),
+    return Positioned(
+        bottom: 0,
+        left: 0,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          height: 70,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 10,
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(
+                bottomNavbar.length,
+                (index) => BlocBuilder<BuildPageCubit, BottomNavBarTab>(
+                    builder: (context, state) => GestureDetector(
+                          onTap: () => context
+                              .read<BuildPageCubit>()
+                              .selectPage(BottomNavBarTab.values[index]),
+                          child: SizedBox(
+                            child: Column(
+                              children: [
+                                Icon(
+                                  bottomNavbar.values.elementAt(index),
+                                  color: state == BottomNavBarTab.values[index]
+                                      ? const Color.fromARGB(255, 0, 202, 20)
+                                      : const Color.fromARGB(
+                                          255, 138, 138, 138),
+                                  size: 30,
+                                ),
+                                const SizedBox(
+                                  height: 5.0,
+                                ),
+                                AutoSizeText(
+                                  bottomNavbar.keys.elementAt(index),
+                                  minFontSize: 8,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                      fontSize: 10,
                                       color:
                                           state == BottomNavBarTab.values[index]
-                                              ? const Color.fromARGB(
-                                                  255, 0, 202, 20)
-                                              : const Color.fromARGB(
-                                                  255, 138, 138, 138),
-                                      size: 30,
-                                    ),
-                                    const SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    AutoSizeText(
-                                      bottomNavbar.keys.elementAt(index),
-                                      minFontSize: 8,
-                                      maxLines: 1,
-                                      style: TextStyle(
-                                          fontSize: 10,
-                                          color: state ==
-                                                  BottomNavBarTab.values[index]
                                               ? const Color(0xFF00AA12)
                                               : Colors.black),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )),
-                  ),
-                ),
+                                )
+                              ],
+                            ),
+                          ),
+                        )),
               ),
-            ));
+            ),
+          ),
+        ));
   }
 }

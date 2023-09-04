@@ -23,7 +23,7 @@ class OrderView extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 180.0,
+                      height: 200.0,
                     ),
                     const GopayTransaction(),
                     Column(

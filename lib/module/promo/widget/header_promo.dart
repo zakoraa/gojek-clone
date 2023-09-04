@@ -39,10 +39,7 @@ class PromoHeader extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
-                      BoxShadow(
-                          color: CustomColor.boxShadow,
-                          spreadRadius: 1,
-                          blurRadius: 2)
+                      BoxShadow(color: CustomColor.boxShadow, blurRadius: 2)
                     ]),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
