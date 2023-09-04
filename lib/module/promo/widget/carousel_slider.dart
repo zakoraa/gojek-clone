@@ -3,7 +3,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gojek/module/promo/blocEvent/carousel_event.dart';
-import 'package:gojek/module/promo/list/interesting_promo_list.dart';
+import 'package:gojek/module/promo/data/interesting_promo_list.dart';
 import 'package:gojek/shared/theme/color.dart';
 
 import '../bloc/carousel_bloc.dart';

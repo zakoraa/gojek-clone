@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gojek/module/promo/list/interesting_promo_list.dart';
+import 'package:gojek/module/promo/data/interesting_promo_list.dart';
 import 'package:gojek/module/promo/widget/app_bar.dart';
 import 'package:gojek/module/promo/widget/carousel_slider.dart';
 import 'package:gojek/module/promo/widget/code.dart';

@@ -7,8 +7,8 @@ class RecommendationPlace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map<String, String> recommendedPlaces = {
-      "London City": "assets/images/goride-logo.png",
-      "Mall Paragon": "assets/images/goride-logo.png",
+      "London City": "assets/images/goride-logo-green.png",
+      "Mall Paragon": "assets/images/goride-logo-green.png",
       "Burger Bangor": "assets/images/gofood-logo.png"
     };
 

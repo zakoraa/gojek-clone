@@ -7,4 +7,5 @@ abstract class CustomColor {
   static const lightGrey = Color.fromARGB(255, 246, 245, 245);
   static const grey = Color.fromARGB(255, 206, 205, 205);
   static final boxShadow = Colors.grey.withOpacity(0.4);
+  static const darkGrey = Color.fromARGB(255, 92, 92, 92);
 }

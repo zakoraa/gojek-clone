@@ -14,7 +14,7 @@ export 'package:gojek/module/home/widget/recommendation_place.dart';
 export 'package:gojek/module/promo/bloc/carousel_bloc.dart';
 export 'package:gojek/module/promo/blocEvent/carousel_event.dart';
 export 'package:gojek/module/promo/blocState/carousel_state.dart';
-export 'package:gojek/module/promo/list/interesting_promo_list.dart';
+export 'package:gojek/module/promo/data/interesting_promo_list.dart';
 export 'package:gojek/module/promo/view/promo_view.dart';
 export 'package:gojek/module/promo/widget/app_bar.dart';
 export 'package:gojek/module/promo/widget/carousel_slider.dart';

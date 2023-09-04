@@ -3,7 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:gojek/shared/theme/color.dart';
 
 class GoFoodHistory extends StatelessWidget {
-  const GoFoodHistory({super.key});
+  const GoFoodHistory(
+      {super.key,
+      required this.title,
+      required this.item,
+      required this.package,
+      required this.status,
+      required this.date,
+      required this.price});
+
+  final String title, package, status, date, price;
+  final int item;
 
   @override
   Widget build(BuildContext context) {
@@ -26,86 +36,108 @@ class GoFoodHistory extends StatelessWidget {
                   width: 20.0,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  child: const Column(
+                  width: MediaQuery.of(context).size.width - 100,
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      AutoSizeText(
-                        "Burger Bangor Express, Indonesia",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 14),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AutoSizeText(
+                                  title,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14),
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(
+                                  "$item item",
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(
+                                  package,
+                                  style: const TextStyle(fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            "Rp$price",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                                color: CustomColor.darkGrey, fontSize: 12),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 10.0,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(
+                                  status,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 5.0,
+                                ),
+                                Text(
+                                  date,
+                                  style: const TextStyle(fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            height: 40,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  width: 1, color: CustomColor.darkGreen),
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white,
+                            ),
+                            child: const Center(
+                                child: Text(
+                              "Pesan lagi",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: CustomColor.darkGreen),
+                            )),
+                          ),
+                        ],
                       ),
-                      Text(
-                        "1 item",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(
-                        "1 Paket Bengal",
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(
-                        "Makanan udah diantar",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        "Hari ini, 20:00",
-                        style: TextStyle(fontSize: 12),
-                      )
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 20.0,
-                ),
-                Expanded(
-                    child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      "Rp24.500",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 92, 92, 92), fontSize: 12),
-                    ),
-                    Container(
-                      height: 40,
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        border:
-                            Border.all(width: 1, color: CustomColor.darkGreen),
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
-                      ),
-                      child: const Center(
-                          child: Text(
-                        "Pesan lagi",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: CustomColor.darkGreen),
-                      )),
-                    ),
-                  ],
-                ))
               ],
             ),
           ),
