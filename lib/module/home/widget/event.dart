@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:gojek/shared/theme/color.dart';
 
 class Event extends StatelessWidget {
   const Event(
@@ -21,10 +22,10 @@ class Event extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: CustomColor.boxShadow,
             spreadRadius: 1,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
+            blurRadius: 1,
+            offset: const Offset(0, 0),
           ),
         ],
       ),

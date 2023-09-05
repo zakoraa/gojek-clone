@@ -36,7 +36,7 @@ class GopayTransaction extends StatelessWidget {
           ),
           const Icon(
             Icons.arrow_forward_ios,
-            color: Colors.grey,
+            color: CustomColor.darkGrey,
             size: 20,
           )
         ],

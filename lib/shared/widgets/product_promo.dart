@@ -28,9 +28,7 @@ class ProductPromo extends StatelessWidget {
             padding: const EdgeInsets.only(left: 15),
             child: Text(
               title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
           ),
           const SizedBox(
@@ -40,7 +38,7 @@ class ProductPromo extends StatelessWidget {
             padding: const EdgeInsets.only(left: 15),
             child: Text(
               description,
-              style: const TextStyle(fontSize: 14),
+              style: const TextStyle(fontSize: 12),
             ),
           ),
           const SizedBox(

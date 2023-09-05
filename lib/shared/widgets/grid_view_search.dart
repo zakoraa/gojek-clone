@@ -37,7 +37,7 @@ class GridViewSearch extends StatelessWidget {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10),
               itemBuilder: (context, index) => Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: BoxDecoration(
                     color: CustomColor.lightGrey,
                     borderRadius: BorderRadius.circular(20),

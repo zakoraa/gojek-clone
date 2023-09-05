@@ -16,7 +16,7 @@ class GridViewWidget extends StatelessWidget {
       "Lainnya": ["assets/gridHeader/lainnya.png", const Color(0xFFEDEDED)],
     };
     return SizedBox(
-      height: 200,
+      height: 180,
       width: MediaQuery.of(context).size.width,
       child: GridView.builder(
         padding: EdgeInsets.zero,
@@ -30,14 +30,16 @@ class GridViewWidget extends StatelessWidget {
         itemBuilder: (context, index) => Column(
           children: [
             Container(
-              height: 50,
-              width: 50,
+              height: 45,
+              width: 45,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(45),
                   color: gridMap.values.elementAt(index)[1]),
               child: Center(
                 child: Image.asset(
                   "${gridMap.values.elementAt(index)[0]}",
+                  height: 25,
+                  width: 25,
                 ),
               ),
             ),

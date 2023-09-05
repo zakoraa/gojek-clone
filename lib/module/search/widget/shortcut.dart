@@ -63,11 +63,11 @@ class ShortCut extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
-                      color: CustomColor.boxShadow,
-                      blurRadius: 5,
-                    ),
+                        color: CustomColor.grey,
+                        blurRadius: 2,
+                        spreadRadius: 1),
                   ],
                 ),
                 child: Padding(

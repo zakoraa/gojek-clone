@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/theme/color.dart';
+
 class InterestingPromotion extends StatelessWidget {
   const InterestingPromotion({super.key});
 
@@ -14,7 +16,7 @@ class InterestingPromotion extends StatelessWidget {
           child: Text(
             "Promo menarik buat kamu",
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -46,12 +48,12 @@ class InterestingPromotion extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
                       width: 1,
-                      color: const Color.fromARGB(255, 183, 183, 183),
+                      color: CustomColor.grey,
                     )),
                 child: Center(
                   child: Text(
                     promo[index],
-                    style: const TextStyle(fontSize: 14),
+                    style: const TextStyle(fontSize: 12),
                   ),
                 ),
               ),

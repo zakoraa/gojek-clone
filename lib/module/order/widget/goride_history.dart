@@ -48,14 +48,14 @@ class GoRideHistory extends StatelessWidget {
                       style: TextStyle(
                           color: CustomColor.darkGrey,
                           fontWeight: FontWeight.bold,
-                          fontSize: 11),
+                          fontSize: 10),
                     ),
                     const SizedBox(
                       height: 2.0,
                     ),
                     Text(
                       date,
-                      style: const TextStyle(fontSize: 11),
+                      style: const TextStyle(fontSize: 10),
                     )
                   ],
                 ),

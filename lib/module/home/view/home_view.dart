@@ -45,7 +45,7 @@ class HomeView extends StatelessWidget {
                 const GridViewWidget(),
                 const RecommendationPlace(),
                 const SizedBox(
-                  height: 20.0,
+                  height: 30.0,
                 ),
                 const GopayLater(
                   title: "Lebih Ringan tiap Senin 🤩",

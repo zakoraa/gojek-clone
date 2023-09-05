@@ -22,10 +22,10 @@ class GopayLater extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 15),
-            child: Image.asset("assets/images/gopay_logo.png", width: 70),
+            child: Image.asset("assets/images/gopay_logo.png", width: 60),
           ),
           const SizedBox(
-            height: 5.0,
+            height: 10.0,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),

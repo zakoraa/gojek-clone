@@ -98,14 +98,14 @@ class AppBarOrder extends StatelessWidget {
                       children: List.generate(
                         appBarMap.length,
                         (index) => Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                           margin: const EdgeInsets.only(right: 15),
-                          height: 40,
+                          height: 35,
                           decoration: BoxDecoration(
                               color: CustomColor.lightGrey,
                               border:
                                   Border.all(width: 1, color: CustomColor.grey),
-                              borderRadius: BorderRadius.circular(20)),
+                              borderRadius: BorderRadius.circular(15)),
                           child: Center(
                               child: index == appBarMap.length - 1
                                   ? Row(

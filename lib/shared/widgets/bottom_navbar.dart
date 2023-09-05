@@ -52,7 +52,7 @@ class BottomNavbar extends StatelessWidget {
                                       ? const Color.fromARGB(255, 0, 202, 20)
                                       : const Color.fromARGB(
                                           255, 138, 138, 138),
-                                  size: 30,
+                                  size: 25,
                                 ),
                                 const SizedBox(
                                   height: 5.0,

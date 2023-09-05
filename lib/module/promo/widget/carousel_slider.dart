@@ -39,7 +39,7 @@ class CarouselSliderPromo extends StatelessWidget {
               CarouselSlider(
                   items: productPromotions1
                       .map((event) => SizedBox(
-                            height: 50,
+                            height: 40,
                             width: MediaQuery.of(context).size.width * 0.8,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
@@ -70,7 +70,7 @@ class CarouselSliderPromo extends StatelessWidget {
                   dotsCount: productPromotions1.length,
                   position: state.selectedIndex,
                   decorator:
-                      const DotsDecorator(activeColor: CustomColor.darkGreen),
+                      const DotsDecorator(activeColor: CustomColor.darkGreen, color: Color.fromARGB(255, 218, 216, 216)),
                 ),
               )
             ],

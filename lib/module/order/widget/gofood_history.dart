@@ -59,21 +59,21 @@ class GoFoodHistory extends StatelessWidget {
                                       fontSize: 14),
                                 ),
                                 const SizedBox(
-                                  height: 10.0,
+                                  height: 5.0,
                                 ),
                                 Text(
                                   "$item item",
                                   style: const TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 10.0,
+                                  height: 5.0,
                                 ),
                                 Text(
                                   package,
-                                  style: const TextStyle(fontSize: 12),
+                                  style: const TextStyle(fontSize: 10),
                                 ),
                               ],
                             ),
@@ -81,8 +81,9 @@ class GoFoodHistory extends StatelessWidget {
                           Text(
                             "Rp$price",
                             style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                                color: CustomColor.darkGrey, fontSize: 12),
+                                fontWeight: FontWeight.bold,
+                                color: CustomColor.darkGrey,
+                                fontSize: 12),
                           ),
                         ],
                       ),
@@ -101,16 +102,13 @@ class GoFoodHistory extends StatelessWidget {
                                 Text(
                                   status,
                                   style: const TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 5.0,
-                                ),
                                 Text(
                                   date,
-                                  style: const TextStyle(fontSize: 12),
+                                  style: const TextStyle(fontSize: 10),
                                 )
                               ],
                             ),
@@ -128,7 +126,7 @@ class GoFoodHistory extends StatelessWidget {
                                 child: Text(
                               "Pesan lagi",
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: CustomColor.darkGreen),
                             )),

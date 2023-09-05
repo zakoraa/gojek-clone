@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:gojek/core.dart';
 
 class RecommendationPlace extends StatelessWidget {
   const RecommendationPlace({super.key});
@@ -27,7 +28,7 @@ class RecommendationPlace extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.6,
                 decoration: BoxDecoration(
                     border: Border.all(
-                        color: const Color.fromARGB(255, 199, 199, 199)),
+                        color: CustomColor.grey),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -44,8 +45,8 @@ class RecommendationPlace extends StatelessWidget {
                       ),
                       Image.asset(
                         recommendedPlaces.values.elementAt(index),
-                        height: 25,
-                        width: 25,
+                        height: 20,
+                        width: 20,
                       )
                     ],
                   ),
