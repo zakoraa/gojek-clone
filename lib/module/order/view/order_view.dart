@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gojek/module/order/data/goride_histories.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gojek/coming_soon.dart';
+import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/module/order/widget/app_bar_order.dart';
-import 'package:gojek/module/order/widget/gopay_transaction.dart';
-import '../data/gofood_histories.dart';
-import '../widget/gofood_history.dart';
-import '../widget/goride_history.dart';
+import 'package:gojek/module/order/widget/history.dart';
+import 'package:gojek/module/order/widget/process.dart';
 
 class OrderView extends StatelessWidget {
   const OrderView({super.key});
@@ -12,54 +12,31 @@ class OrderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Stack(
-            children: [
-              SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 200.0,
-                    ),
-                    const GopayTransaction(),
-                    Column(
-                        children:
-                            List.generate(gofoodHistories.length, (index) {
-                      final item = gofoodHistories[index];
-                      return GoFoodHistory(
-                        title: item["title"],
-                        item: item["item"],
-                        package: item["package"],
-                        status: item["status"],
-                        date: item["date"],
-                        price: item["price"],
-                      );
-                    })),
-                    Column(
-                        children:
-                            List.generate(goRideHistories.length, (index) {
-                      final item = goRideHistories[index];
-                      return GoRideHistory(
-                        address: item["address"]!,
-                        date: item["date"]!,
-                        price: item["price"]!,
-                      );
-                    })),
-                    const SizedBox(
-                      height: 100,
-                    )
-                  ],
-                ),
-              ),
-              const AppBarOrder()
-            ],
+        body: SafeArea(
+            child: SizedBox(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: BlocProvider(
+        create: (context) => OrderTabCubit(),
+        child: BlocBuilder<OrderTabCubit, OrderTab>(
+          builder: (context, state) => Stack(
+            children: [buildOrderTab(state, context), AppBarOrder(state: state)],
           ),
         ),
       ),
-    );
+    )));
+  }
+}
+
+Widget buildOrderTab(dynamic state, BuildContext context) {
+  switch (state) {
+    case OrderTab.riwayat:
+      return OrderHistory(state: state);
+    case OrderTab.dalamProses:
+      return const OrderProcess();
+    case OrderTab.terjadwal:
+      return const ComingSoon();
+    default:
+      return OrderHistory(state: state);
   }
 }

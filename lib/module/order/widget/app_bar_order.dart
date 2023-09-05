@@ -4,8 +4,8 @@ import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/shared/theme/color.dart';
 
 class AppBarOrder extends StatelessWidget {
-  const AppBarOrder({super.key});
-
+  const AppBarOrder({super.key, required this.state});
+  final dynamic state;
   @override
   Widget build(BuildContext context) {
     Map<String, String> appBarMap = {
@@ -13,18 +13,18 @@ class AppBarOrder extends StatelessWidget {
       "Dalam Proses": "Gofood",
       "Terjadwal": "Status"
     };
-    return BlocProvider(
-        create: (context) => OrderTabCubit(),
-        child: Positioned(
-          top: 0,
-          left: 0,
-          child: Container(
-            height: 180,
+    return Positioned(
+        top: 0,
+        left: 0,
+        child: BlocBuilder<OrderTabCubit, OrderTab>(
+          builder: (context, state) => Container(
+            height: state != OrderTab.riwayat ? 140 : 180,
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
               color: Colors.white,
             ),
             child: Column(
+              
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
@@ -52,93 +52,93 @@ class AppBarOrder extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 25),
                   child: Row(
                     children: List.generate(
-                      appBarMap.length,
-                      (index) => BlocBuilder<OrderTabCubit, OrderTab>(
-                          builder: (context, state) => GestureDetector(
-                                onTap: () => context
-                                    .read<OrderTabCubit>()
-                                    .selectTab(OrderTab.values[index]),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 20),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        appBarMap.keys.elementAt(index),
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 12,
-                                            color:
-                                                state == OrderTab.values[index]
-                                                    ? Colors.black
-                                                    : Colors.grey),
-                                      ),
-                                      const SizedBox(
-                                        height: 10.0,
-                                      ),
-                                      state == OrderTab.values[index]
-                                          ? Container(
-                                              width: 50,
-                                              height: 2,
-                                              color: CustomColor.darkGreen,
-                                            )
-                                          : const SizedBox.shrink()
-                                    ],
-                                  ),
+                        appBarMap.length,
+                        (index) => GestureDetector(
+                              onTap: () => context
+                                  .read<OrderTabCubit>()
+                                  .selectTab(OrderTab.values[index]),
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 20),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      appBarMap.keys.elementAt(index),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          color: state == OrderTab.values[index]
+                                              ? Colors.black
+                                              : Colors.grey),
+                                    ),
+                                    const SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    state == OrderTab.values[index]
+                                        ? Container(
+                                            width: 50,
+                                            height: 2,
+                                            color: CustomColor.darkGreen,
+                                          )
+                                        : const SizedBox.shrink()
+                                  ],
                                 ),
-                              )),
-                    ),
+                              ),
+                            )),
                   ),
                 ),
                 const SizedBox(
                   height: 20.0,
                 ),
-                Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Row(
-                      children: List.generate(
-                        appBarMap.length,
-                        (index) => Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          margin: const EdgeInsets.only(right: 15),
-                          height: 35,
-                          decoration: BoxDecoration(
-                              color: CustomColor.lightGrey,
-                              border:
-                                  Border.all(width: 1, color: CustomColor.grey),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Center(
-                              child: index == appBarMap.length - 1
-                                  ? Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          appBarMap.values
-                                              .elementAt(appBarMap.length - 1),
+                state != OrderTab.riwayat
+                    ? const SizedBox.shrink()
+                    : Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Row(
+                          children: List.generate(
+                            appBarMap.length,
+                            (index) => Container(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 15),
+                              margin: const EdgeInsets.only(right: 15),
+                              height: 35,
+                              decoration: BoxDecoration(
+                                  color: CustomColor.lightGrey,
+                                  border: Border.all(
+                                      width: 1, color: CustomColor.grey),
+                                  borderRadius: BorderRadius.circular(15)),
+                              child: Center(
+                                  child: index == appBarMap.length - 1
+                                      ? Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              appBarMap.values.elementAt(
+                                                  appBarMap.length - 1),
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12),
+                                            ),
+                                            const SizedBox(
+                                              width: 5.0,
+                                            ),
+                                            const Icon(
+                                              Icons.arrow_drop_down,
+                                              size: 25,
+                                            )
+                                          ],
+                                        )
+                                      : Text(
+                                          appBarMap.values.elementAt(index),
                                           style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 12),
-                                        ),
-                                        const SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        const Icon(
-                                          Icons.arrow_drop_down,
-                                          size: 25,
-                                        )
-                                      ],
-                                    )
-                                  : Text(
-                                      appBarMap.values.elementAt(index),
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12),
-                                    )),
-                        ),
-                      ),
-                    ))
+                                        )),
+                            ),
+                          ),
+                        )),
               ],
             ),
           ),

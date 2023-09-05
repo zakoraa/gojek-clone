@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gojek/shared/blocs/buildPageCubit/build_page_cubit.dart';
+import 'package:gojek/shared/theme/color.dart';
 
 class BottomNavbar extends StatelessWidget {
   const BottomNavbar({super.key});
@@ -14,12 +15,11 @@ class BottomNavbar extends StatelessWidget {
       "Pesanan": Icons.shopping_bag_rounded,
       "Chat": Icons.chat
     };
-
     return Positioned(
         bottom: 0,
         left: 0,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           height: 70,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
@@ -35,43 +35,77 @@ class BottomNavbar extends StatelessWidget {
           ),
           child: Center(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
                 bottomNavbar.length,
                 (index) => BlocBuilder<BuildPageCubit, BottomNavBarTab>(
-                    builder: (context, state) => GestureDetector(
-                          onTap: () => context
-                              .read<BuildPageCubit>()
-                              .selectPage(BottomNavBarTab.values[index]),
-                          child: SizedBox(
-                            child: Column(
-                              children: [
-                                Icon(
-                                  bottomNavbar.values.elementAt(index),
-                                  color: state == BottomNavBarTab.values[index]
-                                      ? const Color.fromARGB(255, 0, 202, 20)
-                                      : const Color.fromARGB(
-                                          255, 138, 138, 138),
-                                  size: 25,
-                                ),
-                                const SizedBox(
-                                  height: 5.0,
-                                ),
-                                AutoSizeText(
-                                  bottomNavbar.keys.elementAt(index),
-                                  minFontSize: 8,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      color:
-                                          state == BottomNavBarTab.values[index]
-                                              ? const Color(0xFF00AA12)
-                                              : Colors.black),
-                                )
-                              ],
+                    builder: (context, state) {
+                  bool isSelectedPage = state == BottomNavBarTab.values[index];
+                  return GestureDetector(
+                    onTap: () => context
+                        .read<BuildPageCubit>()
+                        .selectPage(BottomNavBarTab.values[index]),
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: isSelectedPage
+                          ? const BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                  Color.fromARGB(5, 0, 255, 8),
+                                  Color.fromARGB(106, 255, 255, 255),
+                                  Color.fromARGB(87, 255, 255, 255),
+                                ]))
+                          : const BoxDecoration(
+                              color: Colors.white,
                             ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          isSelectedPage
+                              ? Container(
+                                  height: 5,
+                                  width: 70,
+                                  decoration: const BoxDecoration(
+                                      color: CustomColor.darkGreen,
+                                      borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(20),
+                                          bottomRight: Radius.circular(20))),
+                                )
+                              : const SizedBox(
+                                  height: 5,
+                                ),
+                          const SizedBox(
+                            height: 10.0,
                           ),
-                        )),
+                          Icon(
+                            bottomNavbar.values.elementAt(index),
+                            color: state == BottomNavBarTab.values[index]
+                                ? const Color.fromARGB(255, 0, 202, 20)
+                                : const Color.fromARGB(255, 138, 138, 138),
+                            size: 25,
+                          ),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          AutoSizeText(
+                            bottomNavbar.keys.elementAt(index),
+                            minFontSize: 8,
+                            maxLines: 1,
+                            style: TextStyle(
+                                fontSize: 10,
+                                color: state == BottomNavBarTab.values[index]
+                                    ? const Color(0xFF00AA12)
+                                    : Colors.black),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                }),
               ),
             ),
           ),
