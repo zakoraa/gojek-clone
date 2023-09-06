@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gojek/coming_soon.dart';
 import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/module/order/widget/app_bar_order.dart';
 import 'package:gojek/module/order/widget/history.dart';
-import 'package:gojek/module/order/widget/process.dart';
+import 'package:gojek/module/order/widget/empty.dart';
 
 class OrderView extends StatelessWidget {
   const OrderView({super.key});
@@ -20,7 +19,10 @@ class OrderView extends StatelessWidget {
         create: (context) => OrderTabCubit(),
         child: BlocBuilder<OrderTabCubit, OrderTab>(
           builder: (context, state) => Stack(
-            children: [buildOrderTab(state, context), AppBarOrder(state: state)],
+            children: [
+              buildOrderTab(state, context),
+              AppBarOrder(state: state)
+            ],
           ),
         ),
       ),
@@ -33,9 +35,17 @@ Widget buildOrderTab(dynamic state, BuildContext context) {
     case OrderTab.riwayat:
       return OrderHistory(state: state);
     case OrderTab.dalamProses:
-      return const OrderProcess();
+      return const OrderEmpty(
+        image: "assets/images/dalam-proses.jpeg",
+        title: "Pesan Gojek, yuk!",
+        description: "Driver kami akan dengan senang hati membantumu.",
+      );
     case OrderTab.terjadwal:
-      return const ComingSoon();
+      return const OrderEmpty(
+        image: "assets/images/terjadwal.jpg",
+        title: "Jadwalin Pesananmu, yuk?",
+        description: "Biar nanti nggak repot, jadwalin aja.",
+      );
     default:
       return OrderHistory(state: state);
   }

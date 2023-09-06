@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gojek/core.dart';
+import '../../../shared/theme/color.dart';
 
 class RecommendationPlace extends StatelessWidget {
   const RecommendationPlace({super.key});

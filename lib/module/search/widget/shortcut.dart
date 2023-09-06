@@ -2,33 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gojek/shared/theme/color.dart';
 
+import '../data/shortcuts.dart';
+
 class ShortCut extends StatelessWidget {
   const ShortCut({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Map<String, List<String>> shortcuts = {
-      "Jl. London City": [
-        "Jl. London City No.54, London, London City, British Raya",
-        "0.5 km"
-      ],
-      "Jl. Portugal": [
-        "Jl. Portugal No.20, Porto, Porto City,  Portugal",
-        "0.7 km"
-      ],
-      "Jl. Brazil City": [
-        "Jl. Brazil City No.54, Brazil, Brazil City, Brazil",
-        "0.3 km"
-      ],
-      "Jl. Argentina City": [
-        "Jl. Argentina City No.54, Argentina, Argentina City, Argentina",
-        "3.5 km"
-      ],
-      "Jl. Amerika City": [
-        "Jl. Amerika City No.54, Amerika, Amerika City, Amerika",
-        "1.7 km"
-      ],
-    };
+   
     return SizedBox(
       height: 240,
       width: MediaQuery.of(context).size.width,
@@ -97,7 +78,7 @@ class ShortCut extends StatelessWidget {
                         height: 10.0,
                       ),
                       AutoSizeText(
-                        shortcuts.keys.elementAt(index),
+                        shortcuts[index]["address"]!,
                         maxLines: 1,
                         minFontSize: 10,
                         overflow: TextOverflow.ellipsis,
@@ -105,7 +86,7 @@ class ShortCut extends StatelessWidget {
                             fontWeight: FontWeight.bold, fontSize: 12),
                       ),
                       AutoSizeText(
-                        shortcuts.values.elementAt(index)[0],
+                        shortcuts[index]["detail_address"]!,
                         maxLines: 2,
                         minFontSize: 10,
                         overflow: TextOverflow.ellipsis,
@@ -115,7 +96,7 @@ class ShortCut extends StatelessWidget {
                         height: 30.0,
                       ),
                       AutoSizeText(
-                        shortcuts.values.elementAt(index)[1],
+                       shortcuts[index]["distance"]!,
                         maxLines: 2,
                         minFontSize: 10,
                         overflow: TextOverflow.ellipsis,

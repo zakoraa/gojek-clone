@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gojek/module/promo/data/interesting_promo_list.dart';
-import 'package:gojek/module/promo/widget/app_bar.dart';
 import 'package:gojek/module/promo/widget/carousel_slider.dart';
 import 'package:gojek/module/promo/widget/code.dart';
 import 'package:gojek/shared/widgets/gopay_later.dart';
 import 'package:gojek/shared/widgets/product_promo.dart';
+import 'package:gojek/shared/widgets/simple_app_bar.dart';
 
 import '../widget/header_promo.dart';
 import '../widget/interesting_promo.dart.dart';
@@ -70,7 +70,7 @@ class PromoView extends StatelessWidget {
                 ],
               ),
             ),
-            const PromoAppBar()
+            const SimpleAppBar(title: "Promo")
           ],
         ),
       ),

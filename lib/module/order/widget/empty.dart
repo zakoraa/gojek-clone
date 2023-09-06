@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
-class OrderProcess extends StatelessWidget {
-  const OrderProcess({super.key});
+class OrderEmpty extends StatelessWidget {
+  const OrderEmpty(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.description});
+
+  final String image, title, description;
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +25,16 @@ class OrderProcess extends StatelessWidget {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      "assets/images/dalam-proses.jpeg",
+                      image,
                       fit: BoxFit.cover,
                     )),
               ),
               const SizedBox(
                 height: 10.0,
               ),
-              const Text(
-                "Pesan Gojek, yuk!",
-                style: TextStyle(
+              Text(
+                title,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -36,10 +42,11 @@ class OrderProcess extends StatelessWidget {
               const SizedBox(
                 height: 5.0,
               ),
-              const Text(
-                "Driver kami akan dengan senang hati membantumu.",
+              Text(
+                description,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w100),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w100),
               )
             ],
           ),

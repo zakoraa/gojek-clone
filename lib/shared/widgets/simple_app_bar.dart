@@ -2,8 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gojek/shared/theme/color.dart';
 
-class PromoAppBar extends StatelessWidget {
-  const PromoAppBar({super.key});
+class SimpleAppBar extends StatelessWidget {
+  const SimpleAppBar({super.key, required this.title});
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +18,14 @@ class PromoAppBar extends StatelessWidget {
         color: Colors.white,
         child: Stack(
           children: [
-            const Positioned(
+            Positioned(
               left: 15,
               bottom: 15,
               child: AutoSizeText(
-                "Promo",
+                title,
                 maxLines: 1,
                 minFontSize: 18,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),

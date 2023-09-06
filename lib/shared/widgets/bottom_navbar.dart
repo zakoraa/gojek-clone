@@ -19,7 +19,7 @@ class BottomNavbar extends StatelessWidget {
         bottom: 0,
         left: 0,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           height: 70,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
@@ -48,7 +48,7 @@ class BottomNavbar extends StatelessWidget {
                         .selectPage(BottomNavBarTab.values[index]),
                     child: Container(
                       height: 70,
-                      width: 70,
+                      width: 80,
                       decoration: isSelectedPage
                           ? const BoxDecoration(
                               gradient: LinearGradient(
@@ -68,7 +68,7 @@ class BottomNavbar extends StatelessWidget {
                           isSelectedPage
                               ? Container(
                                   height: 5,
-                                  width: 70,
+                                  width: 80,
                                   decoration: const BoxDecoration(
                                       color: CustomColor.darkGreen,
                                       borderRadius: BorderRadius.only(
@@ -84,7 +84,7 @@ class BottomNavbar extends StatelessWidget {
                           Icon(
                             bottomNavbar.values.elementAt(index),
                             color: state == BottomNavBarTab.values[index]
-                                ? const Color.fromARGB(255, 0, 202, 20)
+                                ? CustomColor.darkGreen
                                 : const Color.fromARGB(255, 138, 138, 138),
                             size: 25,
                           ),
@@ -98,7 +98,7 @@ class BottomNavbar extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 10,
                                 color: state == BottomNavBarTab.values[index]
-                                    ? const Color(0xFF00AA12)
+                                    ? CustomColor.darkGreen
                                     : Colors.black),
                           )
                         ],
