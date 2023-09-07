@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gojek/coming_soon.dart';
 import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/module/order/widget/app_bar_order.dart';
 import 'package:gojek/module/order/widget/history.dart';
@@ -19,10 +20,7 @@ class OrderView extends StatelessWidget {
         create: (context) => OrderTabCubit(),
         child: BlocBuilder<OrderTabCubit, OrderTab>(
           builder: (context, state) => Stack(
-            children: [
-              buildOrderTab(state, context),
-              AppBarOrder(state: state)
-            ],
+            children: [buildOrderTab(state, context), const AppBarOrder()],
           ),
         ),
       ),
@@ -47,6 +45,6 @@ Widget buildOrderTab(dynamic state, BuildContext context) {
         description: "Biar nanti nggak repot, jadwalin aja.",
       );
     default:
-      return OrderHistory(state: state);
+      return const ComingSoon();
   }
 }

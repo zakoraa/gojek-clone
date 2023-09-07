@@ -4,8 +4,7 @@ import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/shared/theme/color.dart';
 
 class AppBarOrder extends StatelessWidget {
-  const AppBarOrder({super.key, required this.state});
-  final dynamic state;
+  const AppBarOrder({super.key});
   @override
   Widget build(BuildContext context) {
     Map<String, String> appBarMap = {
