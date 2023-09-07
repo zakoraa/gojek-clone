@@ -65,19 +65,16 @@ class BottomNavbar extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          isSelectedPage
-                              ? Container(
-                                  height: 5,
-                                  width: 80,
-                                  decoration: const BoxDecoration(
-                                      color: CustomColor.darkGreen,
-                                      borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(20),
-                                          bottomRight: Radius.circular(20))),
-                                )
-                              : const SizedBox(
-                                  height: 5,
-                                ),
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 1000),
+                            height: 5,
+                            width: isSelectedPage ? 80 : 0,
+                            decoration: const BoxDecoration(
+                                color: CustomColor.darkGreen,
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(20))),
+                          ),
                           const SizedBox(
                             height: 10.0,
                           ),
