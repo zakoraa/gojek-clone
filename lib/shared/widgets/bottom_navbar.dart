@@ -46,7 +46,9 @@ class BottomNavbar extends StatelessWidget {
                     onTap: () => context
                         .read<BuildPageCubit>()
                         .selectPage(BottomNavBarTab.values[index]),
-                    child: Container(
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeOut,
                       height: 70,
                       width: 80,
                       decoration: isSelectedPage
@@ -66,7 +68,8 @@ class BottomNavbar extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           AnimatedContainer(
-                            duration: const Duration(milliseconds: 1000),
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeOut,
                             height: 5,
                             width: isSelectedPage ? 80 : 0,
                             decoration: const BoxDecoration(
@@ -80,7 +83,7 @@ class BottomNavbar extends StatelessWidget {
                           ),
                           Icon(
                             bottomNavbar.values.elementAt(index),
-                            color: state == BottomNavBarTab.values[index]
+                            color: isSelectedPage
                                 ? CustomColor.darkGreen
                                 : const Color.fromARGB(255, 138, 138, 138),
                             size: 25,

@@ -70,12 +70,3 @@ List<Map<String, dynamic>> products = [
     "discount" : 80
   },
 ];
-
-List<Map<String, dynamic>> productPromotions1 =
-    List<Map<String, dynamic>>.from(products);
-List<Map<String, dynamic>> productPromotions2 =
-    List<Map<String, dynamic>>.from(products);
-List<Map<String, dynamic>> productPromotions3 =
-    List<Map<String, dynamic>>.from(products);
-List<Map<String, dynamic>> productPromotions4 =
-    List<Map<String, dynamic>>.from(products);

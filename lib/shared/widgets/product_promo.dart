@@ -1,7 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gojek/shared/blocs/randomListCubit/random_list_cubit.dart';
 import 'package:gojek/shared/theme/color.dart';
 
 class ProductPromo extends StatelessWidget {
@@ -16,8 +14,6 @@ class ProductPromo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RandomListCubit randomListCubit = BlocProvider.of<RandomListCubit>(context);
-    randomListCubit.randomList(productsPromotions);
     return SizedBox(
       height: 350,
       width: MediaQuery.of(context).size.width,
