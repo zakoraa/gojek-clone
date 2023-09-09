@@ -8,4 +8,7 @@ class HomeLoadingInitial extends HomeLoadingState {}
 class HomeLoading extends HomeLoadingInitial {}
 
 class HomeLoaded extends HomeLoadingInitial {
+  final List<Map<String, String>> result;
+
+  HomeLoaded({required this.result});
 }

@@ -1,6 +1,8 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gojek/module/home/bloc/home_loading_bloc.dart';
 import 'package:gojek/module/search/view/search_view.dart';
 import 'package:gojek/shared/theme/color.dart';
 
@@ -25,45 +27,49 @@ class AppBarCustom extends StatelessWidget {
                   color: Colors.white,
                   elevation: 0.0,
                   borderRadius: BorderRadius.circular(25),
-                  child: InkWell(
-                      borderRadius: BorderRadius.circular(25),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SearchView(),
-                            ));
-                      },
-                      splashColor: Colors.transparent,
-                      child: SizedBox(
-                        height: 45,
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        child: Row(
-                          children: [
-                            const SizedBox(
-                              width: 10.0,
-                            ),
-                            const Icon(
-                              Icons.search,
-                              color: Color.fromARGB(255, 109, 109, 109),
-                            ),
-                            const SizedBox(
-                              width: 10.0,
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.5,
-                              child: const Text(
-                                "Cari layanan, makanan, & tujuan",
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Color.fromARGB(255, 109, 109, 109),
-                                ),
+                  child: BlocBuilder<HomeLoadingBloc, HomeLoadingState>(
+                    builder: (context, state) => InkWell(
+                        borderRadius: BorderRadius.circular(25),
+                        onTap: state is HomeLoaded
+                            ? () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const SearchView(),
+                                    ));
+                              }
+                            : () {},
+                        splashColor: Colors.transparent,
+                        child: SizedBox(
+                          height: 45,
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          child: Row(
+                            children: [
+                              const SizedBox(
+                                width: 10.0,
                               ),
-                            )
-                          ],
-                        ),
-                      )),
+                              const Icon(
+                                Icons.search,
+                                color: Color.fromARGB(255, 109, 109, 109),
+                              ),
+                              const SizedBox(
+                                width: 10.0,
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.5,
+                                child: const Text(
+                                  "Cari layanan, makanan, & tujuan",
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Color.fromARGB(255, 109, 109, 109),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )),
+                  ),
                 ),
                 Container(
                   height: 40,
