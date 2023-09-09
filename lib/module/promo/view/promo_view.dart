@@ -21,9 +21,7 @@ class PromoView extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Stack(
           children: [
-            BlocProvider(
-              create: (context) => ProductBloc()..add(OnProductEventCalled()),
-              child: BlocBuilder<ProductBloc, ProductState>(
+              BlocBuilder<ProductBloc, ProductState>(
                 builder: (context, state) {
                   if (state is ProductLoaded) {
                     return SingleChildScrollView(
@@ -85,8 +83,7 @@ class PromoView extends StatelessWidget {
                     return Container();
                   }
                 },
-              ),
-            ),
+              ),  
             const SimpleAppBar(title: "Promo")
           ],
         ),

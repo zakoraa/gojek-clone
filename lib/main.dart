@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gojek/shared/blocs/buildPageCubit/build_page_cubit.dart';
+import 'package:gojek/module/promo/bloc/product_bloc.dart';
 import 'package:gojek/shared/theme/custom_theme.dart';
 import 'main_page.dart';
+import 'module/home/bloc/home_loading_bloc.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,17 +13,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: CustomTheme.theme1,
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider<BuildPageCubit>(
-            create: (context) => BuildPageCubit(),
-          ),
-        ],
-        child: const MainPage(),
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: CustomTheme.theme1,
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider<HomeLoadingBloc>(
+                create: (context) =>
+                    HomeLoadingBloc()..add(OnHomeLoadingEventCalled())),
+            BlocProvider<ProductBloc>(
+                create: (context) =>
+                    ProductBloc()..add(OnProductEventCalled())),
+          ],
+          child: const MainPage(),
+        ));
   }
 }
 

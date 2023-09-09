@@ -12,14 +12,17 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BuildPageCubit, BottomNavBarTab>(
-      builder: (context, state) {
-        return Scaffold(
-          body: Stack(
-            children: [buildPage(state, context), const BottomNavbar()],
-          ),
-        );
-      },
+    return BlocProvider<BuildPageCubit>(
+      create:(context) =>  BuildPageCubit(),
+      child: BlocBuilder<BuildPageCubit, BottomNavBarTab>(
+        builder: (context, state) {
+          return Scaffold(
+            body: Stack(
+              children: [buildPage(state, context), const BottomNavbar()],
+            ),
+          );
+        },
+      ),
     );
   }
 }
