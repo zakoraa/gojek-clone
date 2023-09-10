@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gojek/coming_soon.dart';
+import 'package:gojek/module/order/bloc/order_loading_bloc.dart';
 import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/module/order/widget/app_bar_order.dart';
 import 'package:gojek/module/order/widget/history.dart';
 import 'package:gojek/module/order/widget/empty.dart';
+import 'package:gojek/module/order/widget/shimmer.dart';
 
 class OrderView extends StatelessWidget {
   const OrderView({super.key});
@@ -31,7 +33,19 @@ class OrderView extends StatelessWidget {
 Widget buildOrderTab(dynamic state, BuildContext context) {
   switch (state) {
     case OrderTab.riwayat:
-      return OrderHistory(state: state);
+      return BlocBuilder<OrderLoadingBloc, OrderLoadingState>(
+        builder: (context, loadingState) {
+          if (loadingState is OrderLoaded) {
+            return OrderHistory(
+              state: state,
+              loadingState: loadingState,
+            );
+          } else if (loadingState is OrderLoading) {
+            return const OrderShimmer();
+          }
+          return Container();
+        },
+      );
     case OrderTab.dalamProses:
       return const OrderEmpty(
         image: "assets/images/dalam-proses.jpeg",

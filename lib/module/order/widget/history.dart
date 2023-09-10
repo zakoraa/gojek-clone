@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../blocCubit/order_page_cubit.dart';
-import '../data/gofood_histories.dart';
-import '../data/goride_histories.dart';
 import 'gofood_history.dart';
 import 'gopay_transaction.dart';
 import 'goride_history.dart';
 
 class OrderHistory extends StatelessWidget {
-  const OrderHistory({super.key, required this.state});
-  final dynamic state;
+  const OrderHistory({super.key, required this.state, required this.loadingState});
+  final dynamic state, loadingState;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -23,8 +20,8 @@ class OrderHistory extends StatelessWidget {
                 ),
                 const GopayTransaction(),
                 Column(
-                    children: List.generate(gofoodHistories.length, (index) {
-                  final item = gofoodHistories[index];
+                    children: List.generate(loadingState.goFoodHistories.length, (index) {
+                  final item = loadingState.goFoodHistories[index];
                   return GoFoodHistory(
                     title: item["title"],
                     item: item["item"],
@@ -35,8 +32,8 @@ class OrderHistory extends StatelessWidget {
                   );
                 })),
                 Column(
-                    children: List.generate(goRideHistories.length, (index) {
-                  final item = goRideHistories[index];
+                    children: List.generate(loadingState.goRideHistories.length, (index) {
+                  final item = loadingState.goRideHistories[index];
                   return GoRideHistory(
                     address: item["address"]!,
                     date: item["date"]!,

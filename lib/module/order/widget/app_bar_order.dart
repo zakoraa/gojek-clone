@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gojek/module/order/bloc/order_loading_bloc.dart';
 import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/shared/theme/color.dart';
 
@@ -23,7 +24,6 @@ class AppBarOrder extends StatelessWidget {
               color: Colors.white,
             ),
             child: Column(
-              
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
@@ -52,34 +52,41 @@ class AppBarOrder extends StatelessWidget {
                   child: Row(
                     children: List.generate(
                         appBarMap.length,
-                        (index) => GestureDetector(
-                              onTap: () => context
-                                  .read<OrderTabCubit>()
-                                  .selectTab(OrderTab.values[index]),
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      appBarMap.keys.elementAt(index),
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12,
-                                          color: state == OrderTab.values[index]
-                                              ? Colors.black
-                                              : Colors.grey),
-                                    ),
-                                    const SizedBox(
-                                      height: 10.0,
-                                    ),
-                                    state == OrderTab.values[index]
-                                        ? Container(
-                                            width: 50,
-                                            height: 2,
-                                            color: CustomColor.darkGreen,
-                                          )
-                                        : const SizedBox.shrink()
-                                  ],
+                        (index) =>
+                            BlocBuilder<OrderLoadingBloc, OrderLoadingState>(
+                              builder: (context, loadingState) =>
+                                  GestureDetector(
+                                onTap: loadingState is OrderLoaded
+                                    ? () => context
+                                        .read<OrderTabCubit>()
+                                        .selectTab(OrderTab.values[index])
+                                    : () {},
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        appBarMap.keys.elementAt(index),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                            color:
+                                                state == OrderTab.values[index]
+                                                    ? Colors.black
+                                                    : Colors.grey),
+                                      ),
+                                      const SizedBox(
+                                        height: 10.0,
+                                      ),
+                                      state == OrderTab.values[index]
+                                          ? Container(
+                                              width: 50,
+                                              height: 2,
+                                              color: CustomColor.darkGreen,
+                                            )
+                                          : const SizedBox.shrink()
+                                    ],
+                                  ),
                                 ),
                               ),
                             )),

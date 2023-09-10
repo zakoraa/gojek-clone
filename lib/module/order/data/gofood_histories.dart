@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> gofoodHistories = [
+List<Map<String, dynamic>> goFoodHistories = [
   {
     "title" : "Burger Bangor Express, Indonesia",
     "item" : 1,
