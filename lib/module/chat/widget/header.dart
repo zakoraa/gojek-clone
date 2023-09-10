@@ -35,7 +35,7 @@ class ChatHeader extends StatelessWidget {
           children: List.generate(
               headerChat.length,
               (index) => Padding(
-                    padding: const EdgeInsets.only(left: 5, right: 40),
+                    padding: const EdgeInsets.only(left: 5, right: 30),
                     child: Column(
                       children: [
                         Container(

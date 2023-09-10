@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gojek/module/chat/bloc/chat_loading_bloc.dart';
 import 'package:gojek/module/order/bloc/order_loading_bloc.dart';
 import 'package:gojek/module/promo/bloc/product_bloc.dart';
 import 'package:gojek/shared/theme/custom_theme.dart';
@@ -27,7 +28,10 @@ class MyApp extends StatelessWidget {
             BlocProvider(
               create: (context) =>
                   OrderLoadingBloc()..add(OnOrderLoadingEventCalled()),
-            )
+            ),
+            BlocProvider(
+                create: (context) =>
+                    ChatLoadingBloc()..add(OnChatLoadingEventCalled()))
           ],
           child: const MainPage(),
         ));
