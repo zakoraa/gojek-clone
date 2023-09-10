@@ -50,7 +50,7 @@ class PromoShimmer extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: List.generate(
-                      5,
+                      4,
                       (index) => const Skelton(
                             height: 30,
                             width: 70,
