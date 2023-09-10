@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:gojek/shared/widgets/skelton.dart';
 import 'package:shimmer/shimmer.dart';
 
-class PromoShimmer extends StatelessWidget {
-  const PromoShimmer({super.key});
+class PromoShimmerView extends StatelessWidget {
+  const PromoShimmerView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
       child: Shimmer.fromColors(
           baseColor: Colors.grey.shade300,
           highlightColor: Colors.grey.shade100,
@@ -66,23 +68,20 @@ class PromoShimmer extends StatelessWidget {
                 const SizedBox(
                   height: 20.0,
                 ),
-                Skelton(
-                  height: 120,
-                  width: MediaQuery.of(context).size.width,
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Skelton(
-                  height: 120,
-                  width: MediaQuery.of(context).size.width,
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Skelton(
-                  height: 120,
-                  width: MediaQuery.of(context).size.width,
+                Column(
+                  children: List.generate(
+                      3,
+                      (index) => Column(
+                            children: [
+                              Skelton(
+                                height: 120,
+                                width: MediaQuery.of(context).size.width,
+                              ),
+                              const SizedBox(
+                                height: 10.0,
+                              ),
+                            ],
+                          )),
                 )
               ],
             ),
@@ -90,3 +89,5 @@ class PromoShimmer extends StatelessWidget {
     );
   }
 }
+
+// kenapa tadi gk bisa?????????

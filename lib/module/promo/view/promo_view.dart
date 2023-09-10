@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gojek/module/promo/widget/carousel_slider.dart';
 import 'package:gojek/module/promo/widget/code.dart';
-import 'package:gojek/module/promo/widget/shimmer.dart';
+import 'package:gojek/module/promo/widget/shimmer_promo.dart';
 import 'package:gojek/shared/widgets/gopay_later.dart';
 import 'package:gojek/shared/widgets/product_promo.dart';
 import 'package:gojek/shared/widgets/simple_app_bar.dart';
@@ -76,9 +76,7 @@ class PromoView extends StatelessWidget {
                       ),
                     );
                   } else if (state is ProductLoading) {
-                    return const Center(
-                      child: PromoShimmer(),
-                    );
+                    return const PromoShimmerView();
                   } else {
                     return Container();
                   }
