@@ -49,9 +49,12 @@ class ProductPromo extends StatelessWidget {
                 itemCount: productsPromotions.length,
                 itemBuilder: (context, index) {
                   final item = productsPromotions[index];
-                  return SizedBox(
+                  return Container(
+                    margin: index == productsPromotions.length - 1
+                        ? const EdgeInsets.only(right: 15)
+                        : const EdgeInsets.only(right: 0),
                     height: 250,
-                    width: 190,
+                    width: 210,
                     child: Stack(
                       children: [
                         Positioned(
@@ -68,12 +71,9 @@ class ProductPromo extends StatelessWidget {
                               ),
                             )),
                         Container(
-                          margin: index == productsPromotions.length - 1
-                              ? const EdgeInsets.only(
-                                  right: 15, left: 15, bottom: 10)
-                              : const EdgeInsets.only(left: 15, bottom: 10),
+                          margin: const EdgeInsets.only(left: 15, bottom: 10),
                           height: 250,
-                          width: 180,
+                          width: 200,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white,
