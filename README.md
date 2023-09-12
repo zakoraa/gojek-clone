@@ -1,3 +1,11 @@
+# Gojek Clone App
+
+# Architecture
+The architecture used is MVC architecture
+
+# State management
+State management used is BLoC
+
 # Progress of Gojek App Clone
 You can see the progress of the Gojek App Clone on my YouTube channel : 
 
