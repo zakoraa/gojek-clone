@@ -6,7 +6,7 @@ import 'package:gojek/module/promo/widget/shimmer_promo.dart';
 import 'package:gojek/shared/widgets/gopay_later.dart';
 import 'package:gojek/shared/widgets/product_promo.dart';
 import 'package:gojek/shared/widgets/simple_app_bar.dart';
-import '../bloc/product_bloc.dart';
+import '../bloc/productBloc/product_bloc.dart';
 import '../widget/header_promo.dart';
 import '../widget/interesting_promo.dart.dart';
 

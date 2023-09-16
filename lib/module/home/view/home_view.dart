@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gojek/module/home/bloc/home_loading_bloc.dart';
+import 'package:gojek/module/home/bloc/homeLoadingBloc/home_loading_bloc.dart';
 import 'package:gojek/module/home/widget/app_bar_costum.dart';
 import 'package:gojek/module/home/widget/event.dart';
 import 'package:gojek/module/home/widget/shimmer.dart';

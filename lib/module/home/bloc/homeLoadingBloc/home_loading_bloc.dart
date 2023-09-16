@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:gojek/module/home/data/event_content.dart';
 
-part '../blocEvent/home_loading_event.dart';
-part '../blocState/home_loading_state.dart';
+part './home_loading_event.dart';
+part './home_loading_state.dart';
 
 class HomeLoadingBloc extends Bloc<HomeLoadingEvent, HomeLoadingState> {
   HomeLoadingBloc() : super(HomeLoadingInitial()) {

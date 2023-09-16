@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gojek/module/order/bloc/order_loading_bloc.dart';
+import 'package:gojek/module/order/bloc/orderLoadingBloc/order_loading_bloc.dart';
 import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/shared/theme/color.dart';
 

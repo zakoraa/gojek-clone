@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gojek/coming_soon.dart';
-import 'package:gojek/module/order/bloc/order_loading_bloc.dart';
+import 'package:gojek/module/order/bloc/orderLoadingBloc/order_loading_bloc.dart';
 import 'package:gojek/module/order/blocCubit/order_page_cubit.dart';
 import 'package:gojek/module/order/widget/app_bar_order.dart';
 import 'package:gojek/module/order/widget/history.dart';

@@ -1,4 +1,4 @@
-part of '../bloc/chat_loading_bloc.dart';
+part of './chat_loading_bloc.dart';
 
 @immutable
 abstract class ChatLoadingEvent {}

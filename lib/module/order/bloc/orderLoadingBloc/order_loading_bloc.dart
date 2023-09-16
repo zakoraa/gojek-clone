@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/gofood_histories.dart';
-import '../data/goride_histories.dart';
+import '../../data/gofood_histories.dart';
+import '../../data/goride_histories.dart';
 
-part '../blocEvent/order_loading_event.dart';
-part '../blocState/order_loading_state.dart';
+part './order_loading_event.dart';
+part './order_loading_state.dart';
 
 class OrderLoadingBloc extends Bloc<OrderLoadingEvent, OrderLoadingState> {
   OrderLoadingBloc() : super(OrderLoadingInitial()) {

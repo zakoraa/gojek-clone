@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gojek/module/chat/bloc/chat_loading_bloc.dart';
-import 'package:gojek/module/order/bloc/order_loading_bloc.dart';
-import 'package:gojek/module/promo/bloc/product_bloc.dart';
+import 'package:gojek/module/chat/bloc/chatLoadingBloc/chat_loading_bloc.dart';
+import 'package:gojek/module/order/bloc/orderLoadingBloc/order_loading_bloc.dart';
+import 'package:gojek/module/promo/bloc/productBloc/product_bloc.dart';
 import 'package:gojek/shared/theme/custom_theme.dart';
 import 'main_page.dart';
-import 'module/home/bloc/home_loading_bloc.dart';
+import 'module/home/bloc/homeLoadingBloc/home_loading_bloc.dart';
 
 void main() => runApp(const MyApp());
 

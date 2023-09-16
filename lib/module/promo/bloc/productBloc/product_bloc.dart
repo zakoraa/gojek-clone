@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import '../data/interesting_promo_list.dart';
+import '../../data/interesting_promo_list.dart';
 
-part '../blocEvent/product_event.dart';
-part '../blocState/product_state.dart';
+part './product_event.dart';
+part './product_state.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   ProductBloc() : super(ProductInitial()) {

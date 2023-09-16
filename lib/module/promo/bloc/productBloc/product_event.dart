@@ -1,4 +1,4 @@
-part of '../bloc/product_bloc.dart';
+part of './product_bloc.dart';
 
 @immutable
 abstract class ProductEvent {}

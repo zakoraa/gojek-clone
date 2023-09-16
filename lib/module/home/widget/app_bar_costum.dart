@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gojek/module/home/bloc/home_loading_bloc.dart';
+import 'package:gojek/module/home/bloc/homeLoadingBloc/home_loading_bloc.dart';
 import 'package:gojek/module/search/view/search_view.dart';
 import 'package:gojek/shared/theme/color.dart';
 

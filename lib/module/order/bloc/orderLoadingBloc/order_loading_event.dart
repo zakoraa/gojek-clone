@@ -1,4 +1,4 @@
-part of '../bloc/order_loading_bloc.dart';
+part of './order_loading_bloc.dart';
 
 @immutable
 abstract class OrderLoadingEvent {}
