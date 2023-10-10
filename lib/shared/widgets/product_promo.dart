@@ -54,7 +54,7 @@ class ProductPromo extends StatelessWidget {
                         ? const EdgeInsets.only(right: 15)
                         : const EdgeInsets.only(right: 0),
                     height: 250,
-                    width: 210,
+                    width: 200,
                     child: Stack(
                       children: [
                         Positioned(
