@@ -99,8 +99,7 @@ class BottomNavbar extends StatelessWidget {
                       );
                     })),
                 AnimatedPositioned(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeOut,
+                  duration: const Duration(milliseconds: 500),
                   top: 0,
                   left: animationPosition,
                   child: Container(
