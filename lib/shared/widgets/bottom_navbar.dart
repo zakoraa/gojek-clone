@@ -36,81 +36,84 @@ class BottomNavbar extends StatelessWidget {
                 ),
               ],
             ),
-            child: Stack(fit: StackFit.expand, children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: List.generate(
-                  bottomNavbar.length,
-                  (index) => BlocBuilder<BuildPageCubit, BottomNavBarTab>(
-                      builder: (context, state) {
-                    bool isSelectedPage =
-                        state == BottomNavBarTab.values[index];
-                    return GestureDetector(
-                      onTap: () => context
-                          .read<BuildPageCubit>()
-                          .selectPage(BottomNavBarTab.values[index]),
-                      child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeOut,
-                        height: 70,
-                        width: tabWidth,
-                        decoration: isSelectedPage
-                            ? const BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                    Color.fromARGB(5, 0, 255, 8),
-                                    Color.fromARGB(106, 255, 255, 255),
-                                    Color.fromARGB(87, 255, 255, 255),
-                                  ]))
-                            : const BoxDecoration(
-                                color: Colors.white,
+            child: BlocBuilder<BuildPageCubit, BottomNavBarTab>(
+                builder: (context, state) {
+              double animationPosition =
+                  context.read<BuildPageCubit>().handleAnimationBar(tabWidth);
+
+              return Stack(fit: StackFit.expand, children: [
+                Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: List.generate(bottomNavbar.length, (index) {
+                      bool isSelectedPage =
+                          state == BottomNavBarTab.values[index];
+                      return GestureDetector(
+                        onTap: () => context
+                            .read<BuildPageCubit>()
+                            .selectPage(BottomNavBarTab.values[index]),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeOut,
+                          height: 70,
+                          width: tabWidth,
+                          decoration: isSelectedPage
+                              ? const BoxDecoration(
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      colors: [
+                                      Color.fromARGB(5, 0, 255, 8),
+                                      Color.fromARGB(106, 255, 255, 255),
+                                      Color.fromARGB(87, 255, 255, 255),
+                                    ]))
+                              : const BoxDecoration(
+                                  color: Colors.white,
+                                ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                bottomNavbar.values.elementAt(index),
+                                color: isSelectedPage
+                                    ? CustomColor.darkGreen
+                                    : const Color.fromARGB(255, 138, 138, 138),
+                                size: 25,
                               ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              bottomNavbar.values.elementAt(index),
-                              color: isSelectedPage
-                                  ? CustomColor.darkGreen
-                                  : const Color.fromARGB(255, 138, 138, 138),
-                              size: 25,
-                            ),
-                            const SizedBox(
-                              height: 5.0,
-                            ),
-                            AutoSizeText(
-                              bottomNavbar.keys.elementAt(index),
-                              minFontSize: 8,
-                              maxLines: 1,
-                              style: TextStyle(
-                                  fontSize: 10,
-                                  color: state == BottomNavBarTab.values[index]
-                                      ? CustomColor.darkGreen
-                                      : Colors.black),
-                            )
-                          ],
+                              const SizedBox(
+                                height: 5.0,
+                              ),
+                              AutoSizeText(
+                                bottomNavbar.keys.elementAt(index),
+                                minFontSize: 8,
+                                maxLines: 1,
+                                style: TextStyle(
+                                    fontSize: 10,
+                                    color:
+                                        state == BottomNavBarTab.values[index]
+                                            ? CustomColor.darkGreen
+                                            : Colors.black),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }),
-                ),
-              ),
-              Positioned(
-                top: 0,
-                child: AnimatedContainer(
+                      );
+                    })),
+                AnimatedPositioned(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeOut,
-                  height: 5,
-                  width: tabWidth,
-                  decoration: const BoxDecoration(
-                      color: CustomColor.darkGreen,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(20),
-                          bottomRight: Radius.circular(20))),
-                ),
-              )
-            ])));
+                  top: 0,
+                  left: animationPosition,
+                  child: Container(
+                    height: 5,
+                    width: tabWidth,
+                    decoration: const BoxDecoration(
+                        color: CustomColor.darkGreen,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20))),
+                  ),
+                )
+              ]);
+            })));
   }
 }
